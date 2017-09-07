@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "required": true,
+  "properties": {
+    "customerId": {
+      "type": "string",
+      "required": true,
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "addresses": {
+      "type": "object",
+      "properties": {
+        "address1": {
+          "type": "string"
+        },
+        "adress2": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "addess1",
+        "address2"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "required": true
+    },
+    "lastUpdated": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

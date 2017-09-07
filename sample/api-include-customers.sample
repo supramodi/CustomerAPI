@@ -1,0 +1,38 @@
+[
+  {
+    "customerId": "550e8400-e29b-41d4-a716-446655440000",
+    "firstName": "Jane",
+    "lastName": "Starlin",
+    "address": {
+      "address1": "10, Hill Street",
+      "address2": "NSW",
+      "postalCode": 2320
+    },
+    "version": "1",
+    "lastUpdated": "2015-03-17T00:18:41Z"
+  },
+  {
+    "customerId": "550e8400-e29b-41d4-a716-446655440001",
+    "firstName": "George",
+    "lastName": "Wass",
+    "address": {
+      "address1": "Rouse Pl",
+      "address2": "NSW",
+      "postalCode": 2340
+    },
+    "version": "1",
+    "lastUpdated": "2015-05-12T00:40:44Z"
+  },
+  {
+    "customerId": "550e8400-e29b-41d4-a716-446655440002",
+    "firstName": "Irene",
+    "lastName": "Jass",
+    "address": {
+      "address1": "4, West Ryde",
+      "address2": "NSW",
+      "postalCode": 2520
+    },
+    "version": "1",
+    "lastUpdated": "2017-03-11T00:18:20Z"
+  }
+]

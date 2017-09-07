@@ -1,0 +1,8 @@
+#%RAML 1.0 Trait
+usage: Apply this trait to a GET method that supports search by fields.
+queryParameters:
+      query:
+        description: |
+          JSON array [{"field1","value1","operator1"},{"field2","value2","operator2"},...,{"fieldN","valueN","operatorN"}] <<description>>
+        example: |
+          <<example>>

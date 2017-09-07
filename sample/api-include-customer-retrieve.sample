@@ -1,0 +1,12 @@
+{
+  "customerId": "550e8400-e29b-41d4-a716-446655440000",
+  "firstName": "Jane",
+  "lastName": "Starlin",
+  "address": {
+    "address1": "10, Hill Street",
+    "address2": "NSW",
+    "postalCode": 2320
+  },
+  "version": "1",
+  "lastUpdated": "2015-03-17T00:18:41Z"
+}

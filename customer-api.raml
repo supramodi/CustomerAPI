@@ -1,0 +1,123 @@
+#%RAML 1.0
+---
+title: Customer API
+baseUri: https://mocksvc.mulesoft.com/mocks/56551503-0be0-428c-ae5e-a908e926d1a4/mocks/be1e90b6-8eb5-4a71-8209-1e974b6d9323 # baseUri: https://mocksvc.mulesoft.com/mocks/be1e90b6-8eb5-4a71-8209-1e974b6d9323 # baseUri: http://customer.api.com
+version: v1
+protocols: [ HTTP, HTTPS]
+mediaType: application/json
+
+
+# Comments are not added in the Spec,as details discussion is provided along wih README.md.
+
+types:
+ customer: !include schema/api-include-customer.schema
+ 
+resourceTypes:
+   
+  collection:
+    description: Collection of available <<resourcePathName>> in Customer App.
+    get:
+      description: Get a list of <<resourcePathName>>.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                <<exampleCollection>>
+    
+         
+    post:
+      description: |
+        Add a new <<resourcePathName|!singularize>> to Aplication.
+      queryParameters:
+        access_token:
+          description: "The access token provided by the authentication application"
+          example: AABBCCDD
+          required: true
+          type: string
+      body:
+        application/json:
+          type: <<resourcePathName|!singularize>>
+          example: |
+            <<exampleItem>>
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                { "message": "The <<resourcePathName|!singularize>> has been properly entered" }
+    
+
+  collection-item:
+    description: |
+      Entity representing a <<resourcePathName|!singularize>>
+    get:
+      description: |
+        Get the <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id =
+        {<<resourcePathName|!singularize>>Id}
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                <<exampleItem>>
+        404:
+          body:
+            application/json:
+              example: |
+                {"message": "<<resourcePathName|!singularize>> not found" }
+
+    put:
+      description: |
+        Update the <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id =
+        {<<resourcePathName|!singularize>>Id}    
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                <<exampleItem>>
+        409:
+          description: |
+            Conflict       
+      
+    delete:
+      description: |
+        Delete the <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id =
+        {<<resourcePathName|!singularize>>Id}
+      responses: 
+          204: 
+            description: |
+              No Content
+              
+traits:
+  searchable: !include traits/searchable.raml   
+  orderable: !include traits/orderable.raml    
+  pageable: !include traits/pageable.raml
+  contentCacheable: !include traits/content-cacheable.raml
+  partial: !include traits/partial.raml
+
+
+/customers:
+  type:
+    collection: 
+      exampleCollection: !include sample/api-include-customers.sample
+      exampleItem: !include sample/api-include-customer-new.sample
+  get:
+    is: [
+        searchable: {description: "with valid searchable fields: firstName", example: "[\"firstName\", \"Jane\", \"like\"]"},
+        orderable: {fieldsList: "firstName"}, 
+		    pageable,
+        contentCacheable,
+        partial
+        ]
+
+  /{customerId}:
+    type:
+      collection-item:
+        exampleItem: !include sample/api-include-customer-retrieve.sample
+    
+	 
